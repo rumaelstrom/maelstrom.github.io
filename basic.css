@@ -54,7 +54,7 @@ This stylesheet contains multiple themes. To apply a theme add the attribute `da
   color: rgba(0,0,0,.5);
 }
 footer {font-size: 15pt; margin: auto; height: 50px;}
-body {
+.content {
   min-height: calc(100vh - 70px);
 }
 
