@@ -35,12 +35,6 @@
 :placeholder-shown {
 	color: rgba(0, 0, 0, .5);
 }
-/*footer {
-	font-size: 15pt;
-	margin: auto;
-	bottom: 0;
-	position: fixed;
-}*/
 .content {
   min-height: calc(100vh - 80px);
 }
@@ -257,15 +251,12 @@ blockquote footer, blockquote cite {
 	font-size: 125%;
 	text-align: left;
 }
-/*blockquote footer:before, blockquote cite:before {
-	content: 'вЂ” ';
-}
 footer {
 	font-size: 11pt;
 	text-align: center;
 	padding: 2em .5em;
 	color: #777;
-}*/
+}
 a, input, textarea, button, label, iframe, audio, video {
 	touch-action: manipulation;
 }
