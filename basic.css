@@ -71,10 +71,9 @@ html {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbbbbb00', endColorstr='#dddddd00',GradientType=0);
 }
 body {
- /* margin: 0 auto;*/
-  max-width: 850px;
+  margin: 0 auto;
+  max-width: 1000px;
   min-height: 100%;
-  padding: 2em;
 }
 q:before {content: '\201c'}
 q:after  {content: '\201d'}
