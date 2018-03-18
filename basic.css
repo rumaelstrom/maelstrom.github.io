@@ -53,11 +53,8 @@ This stylesheet contains multiple themes. To apply a theme add the attribute `da
 :placeholder-shown {
   color: rgba(0,0,0,.5);
 }
-footer {font-size: 15pt; margin: auto; height: 50px;}
-.content {
-  min-height: calc(100vh - 70px);
-}
-
+footer {font-size: 15pt; margin: auto; bottom: 0; position: fixed;}
+     
 html {
   font-size: 10pt;
   line-height: 1.4;
