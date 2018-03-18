@@ -1,27 +1,65 @@
 <head>
    <script>var whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true};</script>
    <script src="//wow.zamimg.com/widgets/power.js"></script>
+   <style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+</style>
 </head>
 <body>
-   <link rel="stylesheet" href="style.css">
-   <div class="sidebar bar-block light-grey card" style="width:130px">
-      <h5 class="-item">Раздел</h5>
-      <button class="bar-item button tablink" onclick="openTab(event, 'intro')">Обзор</button>
-      <button class="bar-item button tablink" onclick="openTab(event, 'dictionary')">Словарь терминов</button>
-      <button class="bar-item button tablink" onclick="openTab(event, 'spells')">Заклинания</button>
-      <button class="bar-item button tablink" onclick="openTab(event, 'talents')">Таланты</button>
-      <button class="bar-item button tablink" onclick="openTab(event, 'rotation')">Приоритет заклинаний</button>
-      <button class="bar-item button tablink" onclick="openTab(event, 'stats')">Характеристики</button>
-      <button class="bar-item button tablink" onclick="openTab(event, 'artifact')">Артефакт</button> 
-      <button class="bar-item button tablink" onclick="openTab(event, 'gear')">Гир</button>
-      <button class="bar-item button tablink" onclick="openTab(event, 'enhancements')">Улучшения</button>
-      <button class="bar-item button tablink" onclick="openTab(event, 'race')">Выбор расы</button>
+   <div class="tab">
+      <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'intro')">Обзор</button>
+      <button class="tablinks" onclick="openTab(event, 'dictionary')">Словарь терминов</button>
+      <button class="tablinks" onclick="openTab(event, 'spells')">Заклинания</button>
+      <button class="tablinks" onclick="openTab(event, 'talents')">Таланты</button>
+      <button class="tablinks" onclick="openTab(event, 'rotation')">Приоритет заклинаний</button>
+      <button class="tablinks" onclick="openTab(event, 'stats')">Характеристики</button>
+      <button class="tablinks" onclick="openTab(event, 'artifact')">Артефакт</button> 
+      <button class="tablinks" onclick="openTab(event, 'gear')">Гир</button>
+      <button class="tablinks" onclick="openTab(event, 'enhancements')">Улучшения</button>
+      <button class="tablinks" onclick="openTab(event, 'race')">Выбор расы</button>
    </div>
-   <div style="margin-left:130px">
-   <div id="intro" class="container tab">
+   <div id="intro" class="tabcontent" style="display:none">
       <div align="center"><img src="http://www.noob-club.ru/media/warcraft/legion/legion-shaman-elem.png" alt="Гайд на шамана стихий в Legion" width="615" class="bbc_img resized" />
       <br/>Добро пожаловать в Легион, повелители стихий и сочувствующие. Этот гайд поведает вам об основах игры Шаманом Стихии.</div>
-   <div id="dictionary" class="container tab" style="display:none">
+	</div>
+   <div id="dictionary" class="tabcontent" style="display:none">
    <div align="center"><img src="http://i.imgur.com/wOZ8FpK.png" alt="" width="400" height="60" class="bbc_img resized" /></div>
    <ul class="bbc_list">
       <li><strong>Элем</strong> - шаман, выбравший в талантах ветку &quot;Стихии&quot; (&quot;Elemental&quot;).</li>
@@ -64,7 +102,7 @@
       <li><strong>МШ, MS, Maelstorm</strong> - Энергия Водоворота</li>
    </ul>
    </div>
-      <div id="spells" class="container tab" style="display:none">
+      <div id="spells" class="tabcontent" style="display:none">
          <div align="center"><img src="http://i.imgur.com/0SvsVze.png" alt="" width="280" height="60" class="bbc_img resized" /></div>
          <div align="center"><span style="font-size: 14pt;" class="bbc_size"><strong>Базовые способности:</strong></span></div>
          <br />
@@ -79,7 +117,7 @@
          <hr />
          <br /><a name="tal"></a>
       </div>
-      <div id="talents" class="container tab" style="display:none">
+      <div id="talents" class="tabcontent" style="display:none">
          <div align="center"><img src="http://i.imgur.com/Ww8dn4T.png" alt="" width="200" height="60" class="bbc_img resized" /></div>
          <br />
          <div align="center"><span style="font-size: 14pt;" class="bbc_size"><strong>Рекомендуемые билды:</strong></span></div>
@@ -186,7 +224,7 @@
          <br /><strong>Перерождение</strong> - В течение 15 секунд позволяет кастовать выброс лавы без кд и увеличивает его урон пропорционально вероятности критического удара. Превращает Цепную молнию в Поток лавы.<br /><br /><strong>Грозовой разрядник</strong> - Дает Молнии и Цепной молнии 30% шанс наложить на противника эффект &quot;Грозовой разрядник&quot;. Каждый раз когда Молния или Цепная молния наносит урон, она так же наносит дополнительно 30% урона целям под воздействием &quot;Грозового разрядника&quot;<br /><br /><strong>Ледяная ярость</strong> - 900 СП ледяного урона и повышение урона от следующих 4 Ледяных шоков на 400%.<br /><br /><em>Перерождение - базовый выбор в сингл таргет. Грозовой разрядник - лучший вариант для постоянного клива и аое, лучший талант для мифик+, в вакууме аналогичен перерождению в таргет, но несколько более чувствителен к беготне. Ледяная ярость так же была очередной раз бафнута и может выдавать сопоставимые остальным талантам цифры, но при этом требует значительно большего внимания к ротации.</em><br /><br />
          <hr />
       </div>
-      <div id="rotation" class="container tab" style="display:none">
+      <div id="rotation" class="tabcontent" style="display:none">
          <div align="center"><img src="http://i.imgur.com/lROGOO6.png" alt="" width="500" height="60" class="bbc_img resized" /></div>
          <em>Использование правильного приоритета заклинаний является наиболее важной составляющей хорошей игры элемом. Даже исходя из названия понятно, что мы используем систему приоритетов, то есть систему, где заклинание более высокого приоритета должно использоваться сразу же. Не следуя системе приоритетов ваш урон может быть очень низок, что сразу рождает вопросы относительно вашей состоятельности как члена рейда.</em><br /><br /><strong>Приоритет заклинаний по одной цели:</strong><br />
          <ul class="bbc_list">
@@ -202,7 +240,7 @@
          </ul>
          <strong>Пояснения по изменениям ротации при наличии т21:</strong><br />Вы не должны задумываться о наличии бафа от 2 кусков сета. В большинстве ситуаций он должен восприниматься как просто еще одна пассивка. Вы не должны стремиться скастовать Выброс лавы перед каждым Земным шоком в силу того, что он имеет время полета и баф сета накладывается только в момент достижения им цели. Ситуация с Ледяной яростью и Ледяным шоком аналогична.<br />Вы не должны пытаться кастовать выброс лавы на 4 и более целях, чтобы апнуть Землетрясение.<br /><br /><span style="color: red;" class="bbc_color"><span style="font-size: 18pt;" class="bbc_size">ВСЕ бурсты сдаем строго по кд, если энкаунтер не требует иного.</span></span><br /><br /><strong>Клив/АОЕ приоритеты:</strong><br /><br /><img src="http://i.imgur.com/M0NAVIb.png" alt="" width="637" height="419" class="bbc_img resized" /><br /><br /><strong>Начало боя:</strong><br />-5 <a href="http://ru.wowhead.com/spell=205495" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/inv_hand_1h_artifactstormfist_d_01.jpg" alt="" width="20" height="20" class="bbc_img resized" />Хранитель бурь</a><br />-3 <a href="http://ru.wowhead.com/spell=210643" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_wrathofair_totem.jpg" alt="" width="20" height="20" class="bbc_img resized" />Повелитель тотемов</a><br />-2 Пот, <a href="http://ru.wowhead.com/spell=117014" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/shaman_talent_elementalblast.jpg" alt="" width="20" height="20" class="bbc_img resized" />Удар духов стихии</a><br />0 <a href="http://ru.wowhead.com/spell=198067" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/spell_fire_elemental_totem.jpg" alt="" width="20" height="20" class="bbc_img resized" />Элементаль огня</a><br /><a href="http://ru.wowhead.com/spell=188389" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/spell_fire_flameshock.jpg" alt="" width="20" height="20" class="bbc_img resized" />Огненный шок</a> <br /><a href="http://ru.wowhead.com/spell=51505" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/spell_shaman_lavaburst.jpg" alt="" width="20" height="20" class="bbc_img resized" />Выброс лавы</a> х2<br /><a href="http://ru.wowhead.com/spell=188196" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_lightning.jpg" alt="" width="20" height="20" class="bbc_img resized" />Молния</a> х3<br /><a href="http://ru.wowhead.com/spell=188389" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/spell_fire_flameshock.jpg" alt="" width="20" height="20" class="bbc_img resized" />Огненный шок</a><br /><a href="http://ru.wowhead.com/spell=51505" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/spell_shaman_lavaburst.jpg" alt="" width="20" height="20" class="bbc_img resized" />Выброс лавы</a> слить накопившиеся стаки/проки<br /><a href="http://ru.wowhead.com/spell=117014" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/shaman_talent_elementalblast.jpg" alt="" width="20" height="20" class="bbc_img resized" />Удар духов стихии</a><br /><a href="http://ru.wowhead.com/spell=114050" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/spell_fire_elementaldevastation.jpg" alt="" width="20" height="20" class="bbc_img resized" />Перерождение</a><br />
       </div>
-      <div id="stats" class="container tab" style="display:none">
+      <div id="stats" class="tabcontent" style="display:none">
          <div align="center"><span style="font-size: 24pt;" class="bbc_size"><strong>Характеристики</strong></span></div>
          <br />
          <div align="center"><em><span style="font-size: 12pt;" class="bbc_size"><strong>Текущий приоритет набора характеристик:</strong></span></em></div>
@@ -220,7 +258,7 @@
          <br /><br /><strong>Критический удар</strong> увеличивает урон ваших заклинаний и вызывает прок <a href="http://ru.wowhead.com/spell=16164" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/spell_shadow_manaburn.jpg" alt="" width="20" height="20" class="bbc_img resized" />Средоточие стихий</a>, а так же увеличивает урон <a href="http://ru.wowhead.com/spell=51505" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/spell_shaman_lavaburst.jpg" alt="" width="20" height="20" class="bbc_img resized" />Выброса лавы</a> во время <a href="http://ru.wowhead.com/spell=114050" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/spell_fire_elementaldevastation.jpg" alt="" width="20" height="20" class="bbc_img resized" />Перерождения</a>.<br /><strong>Скорость</strong> уменьшает время ваших кастов, время между тиками дот и снижает гкд до минимума в 0,75 секунды. Каждые 6.7% скорости дают дополнительный тик Тотема жидкой магмы.<br /><strong>Универсальность</strong> увеличивает наносимый урон и снижает получаемый.<br /><strong>Искусность</strong> при касте молнии, цепной молнии и выброса лавы создает второе такое же заклинание наносящее 75%(84% с прокачкой арта) урона и генерирующее 75% энергии водоворота.<br /><br /><strong>Пояснения по статам в текущей ситуации:</strong><br />Критический удар абсолютный топ во всех ситуациях, имеет огромный вес, вы хотите видеть эту характеристику на всех надеваемых предметах.<br />Скорость с уходом от т20 несколько утрачивает значение и переходит на второе место с минимальным отрывом от искусности.<br />Искусность перестает быть бесполезной характеристикой, больше нет необходимости избегать ее на предметах.<br />Универсальность имеется в небольших количествах на обязательных сетовых шмотках и этих количеств зачастую достаточно.<br /><br />
          <hr />
       </div>
-      <div id="artifact" class="container tab" style="display:none">
+      <div id="artifact" class="tabcontent" style="display:none">
          <div align="center"><span style="font-size: 24pt;" class="bbc_size"><strong>Артефакт</strong></span></div>
          <br />
          <div align="center"><em>Одним из главных нововведений WoW:Legion является артефактное оружие имеющее собственное древо талантов. Артефактом нашей специализации является Кулак Ра-дена</em></div>
@@ -239,7 +277,7 @@
          <div align="center"><span style="font-size: 18pt;" class="bbc_size"><strong>Реликвии и Тигель</strong></span></div>
          <br /><img src="https://i.imgur.com/370i8fh.png" alt="" width="700" height="700" class="bbc_img resized" /><br /><br /><img src="https://i.imgur.com/SH786m0.png" alt="" width="700" height="700" class="bbc_img resized" />
       </div>
-      <div id="gear" class="container tab" style="display:none">
+      <div id="gear" class="tabcontent" style="display:none">
          <div align="center"><span style="font-size: 24pt;" class="bbc_size"><strong>Гир</strong></span></div>
          <br /><a name="legend"></a>
          <div align="center"><strong><span style="font-size: 18pt;" class="bbc_size">Легендарные предметы</span></strong></div>
@@ -269,7 +307,7 @@
          <div align="center"><strong><span style="font-size: 18pt;" class="bbc_size">Топ тринкетов</span></strong></div>
          <br /><a href="https://www.stormearthandlava.com/ele/trinkets/" class="bbc_link" target="_blank" rel="nofollow">https://www.stormearthandlava.com/ele/trinkets/</a><br /><br /><a name="improve"></a>
       </div>
-      <div id="enhancements" class="container tab" style="display:none">
+      <div id="enhancements" class="tabcontent" style="display:none">
          <div align="center"><span style="font-size: 24pt;" class="bbc_size"><strong>Улучшения</strong></span></div>
          <div align="center"><strong><span style="font-size: 18pt;" class="bbc_size">Наложение чар</span></strong></div>
          <ul class="bbc_list">
@@ -291,7 +329,7 @@
          </div>
          <br /><strong>Настой:</strong><br /><a href="http://ru.wowhead.com/item=127847" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_flask03purple.jpg" alt="" width="18" height="18" class="bbc_img resized" />Настой тайного соглашения</a> <em>(повышает интеллект на 1300, эффект длится 1 час)</em><br /><br /><strong>Зелье:</strong> <br /><a href="http://ru.wowhead.com/item=142117" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/trade_alchemy_dpotion_a28.jpg" alt="" width="18" height="18" class="bbc_img resized" />Зелье длительной силы</a><br /><br /><strong>Еда:</strong><br /><a href="http://ru.wowhead.com/item=133579" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/inv_misc_food_legion_lavishsuramarfiest.jpg" alt="" width="18" height="18" class="bbc_img resized" />Щедрое сурамарское угощение</a> <em>(+500 инты)</em> <br /><a href="http://ru.wowhead.com/item=133570" class="bbc_link" target="_blank" rel="nofollow"><img src="http://wow.zamimg.com/images/wow/icons/large/inv_misc_food_legion_thehungrymagistar.jpg" alt="" width="18" height="18" class="bbc_img resized" />Голодный магистр</a> <em>(+375 крита)</em><br /><br /><a name="race"></a>
       </div>
-      <div id="race" class="container tab" style="display:none">
+      <div id="race" class="tabcontent" style="display:none">
          <div align="center"><span style="font-size: 24pt;" class="bbc_size"><strong>Выбор расы</strong></span></div>
          <br />
          <div align="center"><em>После переработки расовых способностей в Дреноре, выбор расы уже не играет существенной роли.</em></div>
@@ -299,18 +337,20 @@
       </div>
    </div>
    <script>
-      function openTab(evt, tabName) {
-        var i, x, tablinks;
-        x = document.getElementsByClassName("tab");
-        for (i = 0; i < x.length; i++) {
-           x[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < x.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" red", ""); 
-        }
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " red";
-      }
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultOpen").click();
    </script>
 </body>
