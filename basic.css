@@ -41,7 +41,7 @@ footer {
 	bottom: 0;
 	position: fixed;
 }
-<style>body {
+body {
 	font-family: Arial;
 	font-size: 20px;
 }
@@ -75,7 +75,7 @@ footer {
 	display: none;
 	padding: 6px 12px;
 }
-</style>html {
+html {
 	font-size: 10pt;
 	line-height: 1.4;
 	font-weight: 400;
@@ -257,12 +257,12 @@ blockquote footer, blockquote cite {
 blockquote footer:before, blockquote cite:before {
 	content: 'вЂ” ';
 }
-footer {
+/*footer {
 	font-size: 11pt;
 	text-align: center;
 	padding: 2em .5em;
 	color: #777;
-}
+}*/
 a, input, textarea, button, label, iframe, audio, video {
 	touch-action: manipulation;
 }
