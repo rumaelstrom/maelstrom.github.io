@@ -254,10 +254,10 @@ blockquote footer, blockquote cite {
 	font-size: 125%;
 	text-align: left;
 }
-blockquote footer:before, blockquote cite:before {
+/*blockquote footer:before, blockquote cite:before {
 	content: 'вЂ” ';
 }
-/*footer {
+footer {
 	font-size: 11pt;
 	text-align: center;
 	padding: 2em .5em;
